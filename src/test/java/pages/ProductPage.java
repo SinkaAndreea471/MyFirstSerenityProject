@@ -2,6 +2,7 @@ package pages;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 
+
 public class ProductPage extends BasePage {
     @FindBy(css = "h1.product_title.entry-title")
     private WebElementFacade productName;
@@ -17,7 +18,9 @@ public class ProductPage extends BasePage {
     private WebElementFacade submitFormButton;
     @FindBy (css = "li#menu-item-59 a[href*=\"http://qa1.fasttrackit.org:8008/cart\"]")
     private WebElementFacade cartButton;
-    @FindBy (css= "p.stars")
+    @FindBy (css ="li#tab-title-reviews.reviews_tab")
+    private WebElementFacade reviewsButton;
+    @FindBy (css= "a.star-3")
     private WebElementFacade ratingStars;
     @FindBy (css = "textarea#comment")
     private WebElementFacade reviewFormTextArea;
@@ -26,7 +29,9 @@ public class ProductPage extends BasePage {
     @FindBy (css= "em.woocommerce-review__awaiting-approval")
     private WebElementFacade successfulReviewSubmittedMessage;
 
-
+    public void waitForReviewStars() {
+        ratingStars.waitUntilVisible();
+    }
 
     public void clickAddToCartButton(){
         clickOn(addToCartButton);
@@ -39,17 +44,15 @@ public class ProductPage extends BasePage {
     public void clickOnCartButton(){
         clickOn(cartButton);
     }
-    public void enterProductReview(String value){
-        typeInto(productFormTextArea, value);
+    public void clickOnProductReviewsButton(){clickOn(reviewsButton);}
+    public void enterReviewStars(){clickOn(ratingStars);
     }
-    public void submitProductForm(){
-        clickOn(submitFormButton);
-    }
-    public void hitRatingStarts(){clickOn(ratingStars);}
     public void enterReviewText(String value){typeInto(reviewFormTextArea, value);}
     public void hitSubmitReviewForm(){clickOn(submitReviewButton);
     }
-    public String getsuccessfulReviewSubmittedMessage(){
+    public String getSuccessfulReviewSubmittedMessage(){
         return successfulReviewSubmittedMessage.getText();
     }
+
+
 }

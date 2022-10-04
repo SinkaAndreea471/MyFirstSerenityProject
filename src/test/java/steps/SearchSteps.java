@@ -2,6 +2,9 @@ package steps;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 
+
+
+
 public class SearchSteps extends BaseSteps{
     @Step
     public void searchForKeyword(String keyword){
@@ -21,16 +24,29 @@ public class SearchSteps extends BaseSteps{
         findProductWithNameInListAndOpen(productName);
     }
     @Step
-    public void addARatingForReview(){
-        productPage.hitRatingStarts();
+    public void navigateToProductReviews(){
+        productPage.clickOnProductReviewsButton();
     }
     @Step
-    public void addACommentforReview(){
-        productPage.enterReviewText();
+    public void waitUntilElementIsVisible() {
+        productPage.waitForReviewStars();
+    }
+
+    @Step
+    public void hitRatingStarsForReview(){
+        productPage.enterReviewStars();
+    }
+    @Step
+    public void addACommentForReview(String  value){
+        productPage.enterReviewText(value);
     }
     @Step
     public void hitSubmitYourReviewButton(){
         productPage.hitSubmitReviewForm();
+    }
+    @Step
+    public void checkReviewSubmittedSuccessMessage(){
+        Assert.assertEquals("Your review is awaiting approval", productPage.getSuccessfulReviewSubmittedMessage());
     }
     @Step
     public void checkReviewSubmissionSuccess(){

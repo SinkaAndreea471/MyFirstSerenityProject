@@ -1,6 +1,7 @@
 package steps;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.*;
+import org.openqa.selenium.remote.server.handler.interactions.touch.Scroll;
 
 
 public class BaseSteps extends ScenarioSteps{
