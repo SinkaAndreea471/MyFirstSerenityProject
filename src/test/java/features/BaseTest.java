@@ -9,6 +9,7 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import steps.CartSteps;
 import steps.LoginSteps;
 import steps.SearchSteps;
+import steps.CheckoutSteps;
 
 
     @RunWith(SerenityRunner.class)
@@ -23,6 +24,9 @@ import steps.SearchSteps;
         protected SearchSteps searchSteps;
         @Steps
         protected CartSteps cartSteps;
+        @Steps
+        protected CheckoutSteps checkoutSteps;
+
 
         @Before
         public void init() {

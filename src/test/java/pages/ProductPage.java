@@ -17,6 +17,15 @@ public class ProductPage extends BasePage {
     private WebElementFacade submitFormButton;
     @FindBy (css = "li#menu-item-59 a[href*=\"http://qa1.fasttrackit.org:8008/cart\"]")
     private WebElementFacade cartButton;
+    @FindBy (css= "p.stars")
+    private WebElementFacade ratingStars;
+    @FindBy (css = "textarea#comment")
+    private WebElementFacade reviewFormTextArea;
+    @FindBy (css = "input#submit.submit")
+    private WebElementFacade submitReviewButton;
+    @FindBy (css= "em.woocommerce-review__awaiting-approval")
+    private WebElementFacade successfulReviewSubmittedMessage;
+
 
 
     public void clickAddToCartButton(){
@@ -35,5 +44,12 @@ public class ProductPage extends BasePage {
     }
     public void submitProductForm(){
         clickOn(submitFormButton);
+    }
+    public void hitRatingStarts(){clickOn(ratingStars);}
+    public void enterReviewText(String value){typeInto(reviewFormTextArea, value);}
+    public void hitSubmitReviewForm(){clickOn(submitReviewButton);
+    }
+    public String getsuccessfulReviewSubmittedMessage(){
+        return successfulReviewSubmittedMessage.getText();
     }
 }

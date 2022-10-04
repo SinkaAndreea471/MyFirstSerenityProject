@@ -1,6 +1,8 @@
 package pages;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.annotations.locators.WebElementFacadeListItemHandler;
+
 import java.util.List;
 
 public class CartPage extends BasePage{
@@ -11,10 +13,17 @@ public class CartPage extends BasePage{
     private WebElementFacade subtotalCartPrice;
     @FindBy(css = "tr.order-total span.woocommerce-Price-amount.amount")
     private WebElementFacade totalCartPrice;
+
     @FindBy(css =  " a.remove")
-    private WebElementFacade removeFromCartButton;
+    private List<WebElementFacade> listOfRemoveFromCartButton;
+
+    @FindBy (css = "p.cart-empty")
+    private WebElementFacade cartIsEmptyMessage;
+
     @FindBy(css ="div.woocommerce-message")
     private WebElementFacade removedFromCartMessage;
+    @FindBy (css = "a.checkout-button.button.alt.wc-forward")
+    private WebElementFacade proceedToCheckoutButton;
 
 
     public int getProductsSubtotal(){
@@ -36,9 +45,18 @@ public class CartPage extends BasePage{
         return expectedTotal == actualTotal;
     }
     public void clickRemoveFromCartButton(){
-        clickOn(removeFromCartButton);
+        for (int i=0;i<listOfRemoveFromCartButton.size();i++){
+            clickOn(listOfRemoveFromCartButton.get(i));
+        }
     }
     public String getRemovedFromCartMessage(){
         return removedFromCartMessage.getText();
     }
+    public String getCartIsEmptyMessage(){
+        return cartIsEmptyMessage.getText();
+    }
+    public void clickproceedToCheckoutButton(){
+        clickOn(proceedToCheckoutButton);
+    }
+
 }

@@ -6,8 +6,11 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import java.util.List;
 
 public class SearchResultsPage extends BasePage{
-@FindBy (css = "h1.entry-title a[href*=\"http://qa1.fasttrackit.org:8008/product/dress-211/\"]")
+    @FindBy (css = "h1.entry-title a[href*=\"http://qa1.fasttrackit.org:8008/product/dress-211/\"]")
     private List<WebElementFacade> listOfProductNames;
+    @FindBy (css="header.page-header")
+    private WebElementFacade productNotFoundMessage;
+
 
     public boolean findProductInGridAndOpen(String productName){
         for (WebElementFacade element : listOfProductNames){
@@ -17,6 +20,9 @@ public class SearchResultsPage extends BasePage{
             }
         }
         return false;
+    }
+    public void getProductNotFoundMessage(){
+        productNotFoundMessage.getText();
     }
 
 }
