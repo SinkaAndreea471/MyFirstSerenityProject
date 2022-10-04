@@ -6,13 +6,10 @@ import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import net.serenitybdd.junit.runners.SerenityRunner;
-import steps.CartSteps;
-import steps.LoginSteps;
-import steps.SearchSteps;
-import steps.CheckoutSteps;
+import steps.*;
 
 
-    @RunWith(SerenityRunner.class)
+@RunWith(SerenityRunner.class)
     public class BaseTest {
 
         @Managed(uniqueSession = true)
@@ -26,6 +23,8 @@ import steps.CheckoutSteps;
         protected CartSteps cartSteps;
         @Steps
         protected CheckoutSteps checkoutSteps;
+        @Steps
+        protected LogoutSteps logoutSteps;
 
 
         @Before

@@ -8,7 +8,7 @@ import pages.CheckoutPage;
 public class CheckoutSteps extends BaseSteps{
     @Step
     public void proceedToCheckout(){
-        cartPage.clickproceedToCheckoutButton();
+        cartPage.clickProceedToCheckoutButton();
     }
     @Step
     public void setBillingFirstName(String firstName){

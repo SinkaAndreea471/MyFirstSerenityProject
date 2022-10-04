@@ -16,7 +16,7 @@ public class LoginTest extends BaseTest{
     @Test
     public void loginWithInvalidInformation(){
         loginSteps.navigateToLoginPage();
-        loginSteps.setUserEmail("dadadada");
+        loginSteps.setUserEmail("sinkaandreea@fefjeo.com");
         loginSteps.setPassword("daadada");
         loginSteps.clickLogin();
         loginSteps.verifyUserNotLoggedIn();

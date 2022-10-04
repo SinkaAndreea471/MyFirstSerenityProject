@@ -25,12 +25,5 @@ public class CartTest extends BaseTest{
 
 
     }
-    @Test
-    public void checkTotalAndSubtotalTest(){
-        searchSteps.searchForKeyword("Dress 211");
-        searchSteps.navigateToProductName("Dress 211");
-        cartSteps.addProductToCart();
-        cartSteps.checkSubtotalPrice();
-        cartSteps.checkTotalPrice();
-    }
+
 }

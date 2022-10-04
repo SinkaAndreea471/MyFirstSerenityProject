@@ -6,8 +6,7 @@ public class SearchTest extends BaseTest{
     @Test
     public void validSearchTest(){
         loginSteps.executeLogin(Constants.USER_EMAIl, Constants.USER_PASS);
-        searchSteps.searchForKeyword("Dress 211");
-        searchSteps.findProductWithNameInListAndOpen("Dress 211");
+ 5
     }
     @Test
     public void invalidSearchTest(){

@@ -17,7 +17,7 @@ public class CartSteps extends BaseSteps{
     }
     @Step
     public void hitProceedToCheckout(){
-        cartPage.clickproceedToCheckoutButton();
+        cartPage.clickProceedToCheckoutButton();
     }
 
     @Step

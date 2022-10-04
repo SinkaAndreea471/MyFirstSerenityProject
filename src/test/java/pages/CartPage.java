@@ -55,7 +55,7 @@ public class CartPage extends BasePage{
     public String getCartIsEmptyMessage(){
         return cartIsEmptyMessage.getText();
     }
-    public void clickproceedToCheckoutButton(){
+    public void clickProceedToCheckoutButton(){
         clickOn(proceedToCheckoutButton);
     }
 
